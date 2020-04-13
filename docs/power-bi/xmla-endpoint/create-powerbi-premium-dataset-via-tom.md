@@ -151,7 +151,7 @@ using (var server = new TOM.Server())
     // Create DB on server if it doesn't exist, then get a reference to the server db
     if (!server.Databases.ContainsName(dbName))
     {
-        server.Databases.Add(new TOM.Database(name: dbName, id: dbName)
+        server.Databases.Add(new TOM.Database(dbName)
         {
             CompatibilityLevel = 1520,
             StorageEngineUsed = AMO.StorageEngineUsed.TabularMetadata
@@ -213,9 +213,9 @@ First of all, the full script can simply be run again, and we would only expect 
 
 ![](../../.gitbook/assets/create-powerbi-premium-dataset-via-tom-202449.png)
 
-Let's make a more interesting change, though, and use another new feature the V3 model gives us: **Shared Expressions**. We're taking the currently hard-coded SQL server name out of the partition of the _Customers_ table, and instead define it as a single model-level parameter instead.
+Let's make a more interesting change, though, and use another new feature the V3 model gives us: **Shared Expressions**. We're taking the currently hard-coded SQL server name out of the partition of the _Customers_ table, and define it as a single model-level parameter instead.
 
-That also makes the example more realistic since any real-world dataset would surely have multiple tables/partitions connecting to the same external datasource. Defining that in only one place within the model makes it significantly easier to maintain, and also allows to model to be moved between environments more easily.
+That also makes the example more realistic since any real-world dataset would surely have multiple tables/partitions connecting to the same external datasource. Defining that in only one place within the model makes it significantly easier to maintain, and also allows the model to be moved between environments more easily.
 
 Our script only requires two modifications. Firstly, a _Named_ \(or _Shared_\) Expression is added:
 
