@@ -1,0 +1,6 @@
+{
+    "pasteImage.path": "${projectRoot}/docs/.gitbook/assets",
+    "pasteImage.basePath": "${currentFileDir}",
+    "pasteImage.defaultName": "HHmmss",
+    "pasteImage.namePrefix": "${currentFileNameWithoutExt}-"
+}
