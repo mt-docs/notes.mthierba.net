@@ -1,4 +1,10 @@
-# How-to: Create a Power BI Premium dataset via XMLA endpoint and TOM
+---
+description: >-
+  How-to: Create a Power BI Premium dataset via XMLA endpoint and Tabular Object
+  Model (TOM)
+---
+
+# Deploy through XMLA Endpoint with TOM
 
 With the [Read/Write XMLA endpoint in public preview for Power BI Premium](https://powerbi.microsoft.com/blog/announcing-read-write-xmla-endpoints-in-power-bi-premium-public-preview/) as well as the [Power BI Enhanced "V3" Metadata Format in Preview](https://docs.microsoft.com/power-bi/desktop-enhanced-dataset-metadata), let's see what it takes to create, deploy, and modify a Power BI Premium hosted dataset using code only and the [TOM libraries](https://docs.microsoft.com/analysis-services/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo?view=power-bi-premium-current).
 
@@ -6,17 +12,17 @@ With the [Read/Write XMLA endpoint in public preview for Power BI Premium](https
 
 1. Power BI Premium capacity with the XMLA endpoint enabled for Read/Write.
 2. A Power BI workspace assigned to the Premium capacity.
-3. Access to the workspace at the *Contributor* level or higher.
-4. The latest [TOM client libraries](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/), *18.4.8* at the time of writing.
+3. Access to the workspace at the _Contributor_ level or higher.
+4. The latest [TOM client libraries](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/), _18.4.8_ at the time of writing.
 
 ## Enable XMLA Read/Write Mode
 
 That is explained [here](https://docs.microsoft.com/power-bi/service-premium-connect-tools#enable-xmla-read-write) and requires a Power BI Tenant Admin to configure the capacity accordingly at [https://app.powerbi.com/admin-portal/capacities](https://app.powerbi.com/admin-portal/capacities).
 
-Please note that this does not even require a full Power BI Premium account as the same functionality is available on any of the *Power BI Embedded* capacities (which are billed hourly and can be provisioned, paused, and deleted at any time, hence great for testing and POCs). *Just Thorning Blindbæk* has blogged about that approach [here](https://justb.dk/blog/2020/04/using-the-xmla-endpoint-without-premium/).
+Please note that this does not even require a full Power BI Premium account as the same functionality is available on any of the _Power BI Embedded_ capacities \(which are billed hourly and can be provisioned, paused, and deleted at any time, hence great for testing and POCs\). _Just Thorning Blindbæk_ has blogged about that approach [here](https://justb.dk/blog/2020/04/using-the-xmla-endpoint-without-premium/).
 
 {% hint style="warning" %}
-There is currently an issue when using a Power BI Embedded A SKU which prevents the Read/Write mode to be enabled successfully. The workaround for that is to either completely disable the *Dataflows* workload on the capacity, or to limit the Dataflows *Max Memory (%)* threshold to a maximum of 40%.
+There is currently an issue when using a Power BI Embedded A SKU which prevents the Read/Write mode to be enabled successfully. The workaround for that is to either completely disable the _Dataflows_ workload on the capacity, or to limit the Dataflows _Max Memory \(%\)_ threshold to a maximum of 40%.
 {% endhint %}
 
 ## Demo Setup
@@ -40,7 +46,7 @@ Furthermore, we'll need to reference this NuGet package: `Microsoft.AnalysisServ
 
 Since we are replicating how Power BI creates datasets natively, we are using M/PowerQuery to load data into the model. The M query for this is extremely simple and only fetches three columns from the `DimCustomer` table:
 
-```
+```text
 let
     Source = Sql.Database("YOUR_SERVER_NAME_HERE", "AdventureWorksDW2014"),
     dbo_DimCustomer = Source{[Schema="dbo",Item="DimCustomer"]}[Data],
@@ -161,7 +167,7 @@ using (var server = new TOM.Server())
 }
 ```
 
-The script will create a new database with the `1520` _CompatibilityLevel_ (which is required for the V3 metadata format). If a database with the same name already exists its model will be updated instead. Hence, this approach can also be used for incremental model development.
+The script will create a new database with the `1520` _CompatibilityLevel_ \(which is required for the V3 metadata format\). If a database with the same name already exists its model will be updated instead. Hence, this approach can also be used for incremental model development.
 
 The _DataSource_ connection string can be grabbed from the Premium-enabled Power BI workspace:
 
@@ -189,7 +195,7 @@ Let's create a report to verify that the dataset does indeed contain data:
 
 ![](../../.gitbook/assets/create-powerbi-premium-dataset-via-tom-201407.png)
 
-This gives us the *Number of Customers* by first name - not very insightful, but sufficient to demonstrate this is a fully functional Power BI dataset now!
+This gives us the _Number of Customers_ by first name - not very insightful, but sufficient to demonstrate this is a fully functional Power BI dataset now!
 
 ## Connect to the Dataset via SSMS
 
@@ -197,21 +203,21 @@ The same connection string can also be used to connect via SSMS:
 
 ![](../../.gitbook/assets/create-powerbi-premium-dataset-via-tom-201812.png)
 
-That allows us to verify the Model *Description* property we've used for custom metadata earlier:
+That allows us to verify the Model _Description_ property we've used for custom metadata earlier:
 
 ![](../../.gitbook/assets/create-powerbi-premium-dataset-via-tom-202111.png)
 
 ## Deploy a model change
 
-First of all, the full script can simply be run again, and we would only expect the *Description* property to change and no further dataset refresh to be necessary:
+First of all, the full script can simply be run again, and we would only expect the _Description_ property to change and no further dataset refresh to be necessary:
 
 ![](../../.gitbook/assets/create-powerbi-premium-dataset-via-tom-202449.png)
 
-Let's make a more interesting change, though, and use another new feature the V3 model gives us: **Shared Expressions**. We're taking the currently hard-coded SQL server name out of the partition of the *Customers* table, and instead define it as a single model-level parameter instead.
+Let's make a more interesting change, though, and use another new feature the V3 model gives us: **Shared Expressions**. We're taking the currently hard-coded SQL server name out of the partition of the _Customers_ table, and instead define it as a single model-level parameter instead.
 
 That also makes the example more realistic since any real-world dataset would surely have multiple tables/partitions connecting to the same external datasource. Defining that in only one place within the model makes it significantly easier to maintain, and also allows to model to be moved between environments more easily.
 
-Our script only requires two modifications. Firstly, a *Named* (or *Shared*) Expression is added:
+Our script only requires two modifications. Firstly, a _Named_ \(or _Shared_\) Expression is added:
 
 ```csharp
 model.Expressions.Add(new TOM.NamedExpression {
@@ -221,7 +227,7 @@ model.Expressions.Add(new TOM.NamedExpression {
 });
 ```
 
-Then, the existing partition declaration for the *Customers* table is adjusted to use a M query reference rather than the actual server name  (`#"[SQL Server]"`):
+Then, the existing partition declaration for the _Customers_ table is adjusted to use a M query reference rather than the actual server name \(`#"[SQL Server]"`\):
 
 ```csharp
 table.Partitions.Add(new TOM.Partition
@@ -241,11 +247,11 @@ table.Partitions.Add(new TOM.Partition
 });
 ```
 
-*By convention, I generally surround M parameters with square brackets to visually distinguish them from proper M query names.*
+_By convention, I generally surround M parameters with square brackets to visually distinguish them from proper M query names._
 
 With those two changes, re-running the entire script doesn't take very long at all although we've made a relatively significant structural change.
 
-One disappointment, however, is the discovery that Power BI is not (yet) recognizing those parameters as dataset parameters:
+One disappointment, however, is the discovery that Power BI is not \(yet\) recognizing those parameters as dataset parameters:
 
 ![](../../.gitbook/assets/create-powerbi-premium-dataset-via-tom-205349.png)
 
@@ -253,7 +259,7 @@ This is probably due to the preview status of the V3 model, and will hopefully b
 
 We can verify that the change has gone through, though, by scripting the entire database in SSMS. The resulting TMSL script is indeed quite comprehensible:
 
-```json
+```javascript
 {
   "create": {
     "database": {
@@ -330,3 +336,4 @@ We can verify that the change has gone through, though, by scripting the entire 
 ## Full Demo Scripts
 
 The initial script as well as the updated version is available [in this Gist](https://gist.github.com/mthierba/33ee04af989562edb08b534755350a9a).
+

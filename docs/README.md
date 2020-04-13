@@ -1,4 +1,4 @@
-# Welcome
+# About
 
 This site contains technical notes and articles by me, Mathias Thierbach. It is WIP, and will hopefully grow over time. All opinions are my own.
 
@@ -21,3 +21,4 @@ Topics to be expected:
 * LinkedIn: [mthierba](https://www.linkedin.com/in/mthierba/)
 * GitHub: [mthierba](https://github.com/mthierba)
 * StackOverflow: [mthierba](https://stackoverflow.com/users/736263/mthierba)
+
