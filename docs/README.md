@@ -21,4 +21,4 @@ Topics to be expected:
 * LinkedIn: [mthierba](https://www.linkedin.com/in/mthierba/)
 * GitHub: [mthierba](https://github.com/mthierba)
 * StackOverflow: [mthierba](https://stackoverflow.com/users/736263/mthierba)
-
+* Power BI Community: [mthierba](https://community.powerbi.com/t5/user/viewprofilepage/user-id/5519)
