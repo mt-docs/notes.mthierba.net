@@ -13,7 +13,7 @@ With the [Read/Write XMLA endpoint in public preview for Power BI Premium](https
 1. Power BI Premium capacity with the XMLA endpoint enabled for Read/Write.
 2. A Power BI workspace assigned to the Premium capacity.
 3. Access to the workspace at the _Contributor_ level or higher.
-4. The latest [TOM client libraries](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/), _18.4.8_ at the time of writing.
+4. The latest [TOM client libraries](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/), _19.2_ at the time of writing.
 
 ## Enable XMLA Read/Write Mode
 
@@ -148,21 +148,24 @@ using (var server = new TOM.Server())
     server.Connect(connStrBldr.ConnectionString);
     server.Dump();
 
-    // Create DB on server if it doesn't exist, then get a reference to the server db
     if (!server.Databases.ContainsName(dbName))
     {
-        server.Databases.Add(new TOM.Database(dbName)
+        var db = new TOM.Database(dbName)
         {
             CompatibilityLevel = 1520,
-            StorageEngineUsed = AMO.StorageEngineUsed.TabularMetadata
-        });
-        server.Databases[dbName].Update();
-    }
+            StorageEngineUsed = AMO.StorageEngineUsed.TabularMetadata,
+            Model = model
+        };
 
-    using (var serverDb = server.Databases.GetByName(dbName))
+        server.Execute(Microsoft.AnalysisServices.Tabular.JsonScripter.ScriptCreate(db)).Dump();
+    }
+    else
     {
-        model.CopyTo(serverDb.Model);
-        serverDb.Model.SaveChanges();
+        using (var serverDb = server.Databases.GetByName(dbName))
+        {
+            model.CopyTo(serverDb.Model);
+            serverDb.Model.SaveChanges();
+        }
     }
 }
 ```
@@ -337,3 +340,9 @@ We can verify that the change has gone through, though, by scripting the entire 
 
 The initial script as well as the updated version is available [in this Gist](https://gist.github.com/mthierba/33ee04af989562edb08b534755350a9a).
 
+## Updates
+
+### 2020-06-02
+
+* Bumped AMO package version number to 19.2
+* Changed the _Create New Database_ section of script as previous version was no longer working as expected in a Power BI Premium workspace (Data sources did not get recognized when an empty database was created first and then updated. The new script version generates a single command to create and define the entire database.)
