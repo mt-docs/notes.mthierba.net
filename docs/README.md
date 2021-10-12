@@ -14,6 +14,11 @@ Topics to be expected:
 * VS Code
 * DocFX
 
+## Action BI Toolkit | pbi-tools
+
+* <https://www.action-bi.com/action-bi-toolkit>
+* [pbi-tools on Github](https://github.com/action-bi-toolkit/pbi-tools)
+
 ## Contact
 
 * Email: `contact` _at_ `mthierba.net`
