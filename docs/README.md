@@ -7,17 +7,18 @@ This site contains technical notes and articles by me, Mathias Thierbach. It is 
 Topics to be expected:
 
 * Power BI and Azure Analysis Services
+* DevOps, Azure Pipelines, GitLab, GitHub Actions
 * ASP.NET Core
 * Azure
 * Hangfire
 * Orchard Core
 * VS Code
-* DocFX
+* DocFX, Statiq
 
-## Action BI Toolkit | pbi-tools
+## pbi-tools
 
-* <https://www.action-bi.com/action-bi-toolkit>
-* [pbi-tools on Github](https://github.com/action-bi-toolkit/pbi-tools)
+* <https://pbi.tools/>
+* [pbi-tools on Github](https://github.com/pbi-tools)
 
 ## Contact
 
