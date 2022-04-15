@@ -13,6 +13,14 @@ Using the reflection approach described [in this article](./list-new-features-in
 
 - [Article: Compatibility level for tabular models](https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services)
 
+## 19.39 - 13-Apr-2022
+
+- *No new Compatibility Level*
+- New value in [TraceEventClass Enum](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.traceeventclass)
+  - `DAXEvaluationLog = 135`
+- New property in [ConnectionInfo Class](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.connectioninfo)
+  - `public AsAzureRedirection AsAzureRedirection { get; }`
+
 ## 1569 (new in 19.36 - 01-Mar-2022)
 
 - [Model.MaxParallelismPerQuery](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.model.maxparallelismperquery): *Maximum degree of parallelism for query in formula engine*
@@ -23,7 +31,7 @@ Using the reflection approach described [in this article](./list-new-features-in
 
 ## 1567 (new in 19.34 - 10-Feb-2022)
 
-- ChangedProperties (Column, Hierarchy, Level, Measure, Relationship, Table)
+- ChangedProperties ([Column](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.column.changedproperties), [Hierarchy](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.hierarchy.changedproperties), [Level](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.level.changedproperties), [Measure](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.measure.changedproperties), [Relationship](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.relationship.changedproperties), [Table](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.table.changedproperties))
 
 ## 1566 (new in 19.27 - 10-Nov-2021)
 
