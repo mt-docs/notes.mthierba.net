@@ -19,6 +19,7 @@ Topics to be expected:
 
 * <https://pbi.tools/>
 * [pbi-tools on Github](https://github.com/pbi-tools)
+* [pbi-tools YouTube Playlist](https://tinyurl.com/pbi-tools)
 
 ## Contact
 
