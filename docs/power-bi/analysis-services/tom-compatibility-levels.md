@@ -13,9 +13,17 @@ Using the reflection approach described [in this article](./list-new-features-in
 
 - [Article: Compatibility level for tabular models](https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services)
 
-## 19.39 - 13-Apr-2022
+## 1571  (new in 19.42 - 20-Jun-2022)
 
-- *No new Compatibility Level*
+- [ObjectTranslation.Altered](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.objecttranslation.altered)
+
+## 1570 (new in 19.42 - 20-Jun-2022)
+
+- [NamedExpression.ExpressionSource](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.namedexpression.expressionsource)
+- [NamedExpression.RemoteParameterName](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.namedexpression.remoteparametername)
+
+### API Additions in 19.39 - 13-Apr-2022
+
 - New value in [TraceEventClass Enum](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.traceeventclass)
   - `DAXEvaluationLog = 135`
 - New property in [ConnectionInfo Class](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.connectioninfo)
