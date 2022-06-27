@@ -15,17 +15,17 @@ Using the reflection approach described [in this article](./list-new-features-in
 
 ## 1571  (new in 19.42 - 20-Jun-2022)
 
-- [ObjectTranslation.Altered](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.objecttranslation.altered)
+- [ObjectTranslation.Altered](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.objecttranslation.altered): *An indication if the translation of the property had been changed.*
 
 ## 1570 (new in 19.42 - 20-Jun-2022)
 
-- [NamedExpression.ExpressionSource](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.namedexpression.expressionsource)
-- [NamedExpression.RemoteParameterName](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.namedexpression.remoteparametername)
+- [NamedExpression.ExpressionSource](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.namedexpression.expressionsource): *A reference to the NamedExpression where the parameter associated with the remote model.*
+- [NamedExpression.RemoteParameterName](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.namedexpression.remoteparametername): *The parameter name defined in source model, applicable only for proxy model and empty for local model.*
 
 ### API Additions in 19.39 - 13-Apr-2022
 
 - New value in [TraceEventClass Enum](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.traceeventclass)
-  - `DAXEvaluationLog = 135`
+  - `DAXEvaluationLog = 135` *Output of EvaluateAndLog function.*
 - New property in [ConnectionInfo Class](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.connectioninfo)
   - `public AsAzureRedirection AsAzureRedirection { get; }`
 
@@ -39,7 +39,7 @@ Using the reflection approach described [in this article](./list-new-features-in
 
 ## 1567 (new in 19.34 - 10-Feb-2022)
 
-- ChangedProperties ([Column](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.column.changedproperties), [Hierarchy](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.hierarchy.changedproperties), [Level](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.level.changedproperties), [Measure](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.measure.changedproperties), [Relationship](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.relationship.changedproperties), [Table](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.table.changedproperties))
+- ChangedProperties ([Column](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.column.changedproperties), [Hierarchy](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.hierarchy.changedproperties), [Level](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.level.changedproperties), [Measure](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.measure.changedproperties), [Relationship](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.relationship.changedproperties), [Table](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.table.changedproperties)): *Represents an indication of a change to one of the object's properties.*
 
 ## 1566 (new in 19.27 - 10-Nov-2021)
 
