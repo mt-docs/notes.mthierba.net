@@ -13,6 +13,10 @@ Using the reflection approach described [in this article](./list-new-features-in
 
 - [Article: Compatibility level for tabular models](https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services)
 
+## 1572  (new in 19.46 - 11-Jul-2022)
+
+- [Table.ExcludeFromAutomaticAggregations](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.table.excludefromautomaticaggregations): ***Awaiting API Docs updates on docs.microsoft.com***
+
 ## 1571  (new in 19.42 - 20-Jun-2022)
 
 - [ObjectTranslation.Altered](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.objecttranslation.altered): *An indication if the translation of the property had been changed.*
@@ -122,9 +126,9 @@ API Additions
 
 **QueryGroups**
 
-- [Model.QueryGroups](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.model.querygroups)
-- [NamedExpression.QueryGroup](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.namedexpression.querygroup)
-- [Partition.QueryGroup](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.partition.querygroup)
+- [Model.QueryGroups](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.model.querygroups): *Gets the collection object of all querygroups in the current Model.*
+- [NamedExpression.QueryGroup](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.namedexpression.querygroup): *QueryGroup associated with the expression.*
+- [Partition.QueryGroup](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.partition.querygroup): *QueryGroup associated with the partition.*
 - [Table.ExcludeFromModelRefresh](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.table.excludefrommodelrefresh): *A boolean value that indicates whether the table is excluded from model refresh. When this is true, a refresh operation on the model would not trigger a refresh on the partitions of the table if they were already processed.*
 
 ## 1475
