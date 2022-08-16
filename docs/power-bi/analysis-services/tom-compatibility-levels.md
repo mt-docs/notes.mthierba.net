@@ -13,6 +13,11 @@ Using the reflection approach described [in this article](./list-new-features-in
 
 - [Article: Compatibility level for tabular models](https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services)
 
+### API Additions in 19.48 - 15-Aug-2022
+
+- [Model.ApplyAutomaticAggregations](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.model.applyautomaticaggregations): ***Awaiting MS Docs Updates.***
+- [JsonScripter.ScriptApplyAutomaticAggregations](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.jsonscripter.scriptapplyautomaticaggregations): ***Awaiting MS Docs Updates.***
+
 ## 1572  (new in 19.46 - 11-Jul-2022)
 
 - [Table.ExcludeFromAutomaticAggregations](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.table.excludefromautomaticaggregations): *An indication whether the table is excluded from the automatic aggregations feature.*
