@@ -15,8 +15,8 @@ Using the reflection approach described [in this article](./list-new-features-in
 
 ### API Additions in 19.48 - 15-Aug-2022
 
-- [Model.ApplyAutomaticAggregations](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.model.applyautomaticaggregations): ***Awaiting MS Docs Updates.***
-- [JsonScripter.ScriptApplyAutomaticAggregations](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.jsonscripter.scriptapplyautomaticaggregations): ***Awaiting MS Docs Updates.***
+- [Model.ApplyAutomaticAggregations](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.model.applyautomaticaggregations): *Retrieves automatic aggregation recommendations from Analysis Services engine and applies changes to the model.*
+- [JsonScripter.ScriptApplyAutomaticAggregations](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.jsonscripter.scriptapplyautomaticaggregations): *Scripts out a given Tabular database into an ApplyAutomaticAggregations command.*
 
 ## 1572  (new in 19.46 - 11-Jul-2022)
 
