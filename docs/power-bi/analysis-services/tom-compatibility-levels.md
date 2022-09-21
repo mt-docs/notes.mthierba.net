@@ -13,16 +13,22 @@ Using the reflection approach described [in this article](./list-new-features-in
 
 - [Article: Compatibility level for tabular models](https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services)
 
+## 1601 (new in 19.49 - 19-Sep-2022)
+
+Introduces **FormatStringDefinition** to measures. Previously, those only existed on [Calculation Items](https://learn.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.calculationitem.formatstringdefinition).
+
+- [Measure.FormatStringDefinition](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.measure.formatstringdefinition): *A reference to a FormatStringDefinition object owned by this Measure.*
+
 ### API Additions in 19.48 - 15-Aug-2022
 
 - [Model.ApplyAutomaticAggregations](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.model.applyautomaticaggregations): *Retrieves automatic aggregation recommendations from Analysis Services engine and applies changes to the model.*
 - [JsonScripter.ScriptApplyAutomaticAggregations](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.jsonscripter.scriptapplyautomaticaggregations): *Scripts out a given Tabular database into an ApplyAutomaticAggregations command.*
 
-## 1572  (new in 19.46 - 11-Jul-2022)
+## 1572 (new in 19.46 - 11-Jul-2022)
 
 - [Table.ExcludeFromAutomaticAggregations](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.table.excludefromautomaticaggregations): *An indication whether the table is excluded from the automatic aggregations feature.*
 
-## 1571  (new in 19.42 - 20-Jun-2022)
+## 1571 (new in 19.42 - 20-Jun-2022)
 
 - [ObjectTranslation.Altered](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.objecttranslation.altered): *An indication if the translation of the property had been changed.*
 
