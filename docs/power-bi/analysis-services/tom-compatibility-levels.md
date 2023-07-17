@@ -13,13 +13,80 @@ Using the reflection approach described [in this article](./list-new-features-in
 
 - [Article: Compatibility level for tabular models](https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services)
 
+### API Changes in 19.65.7 - 6-Jul-2023
+
+- Release of [TMDL Preview-3](https://www.nuget.org/packages/Microsoft.AnalysisServices.Tabular.Tmdl.retail.amd64/19.65.7.2-TmdlPreview) [[NetCore](https://www.nuget.org/packages/Microsoft.AnalysisServices.Tabular.Tmdl.NetCore.retail.amd64/19.65.7.2-TmdlPreview)]
+
+*No changes in public API*
+
+### API Changes in 19.65.4 - 8-Jun-2023
+
+*No changes in public API*
+
+### API Changes in 19.64 - 4-May-2023
+
+- Release of [TMDL Preview-2](https://www.nuget.org/packages/Microsoft.AnalysisServices.Tabular.Tmdl.retail.amd64/19.64.0-TmdlPreview) [[NetCore](https://www.nuget.org/packages/Microsoft.AnalysisServices.Tabular.Tmdl.NetCore.retail.amd64/19.64.0-TmdlPreview)]
+- REMOVED: `CalculationGroup.DefaultExpression` property *(Preview)*
+- REMOVED: `CalculationExpression` class *(Preview)*
+- ADDED: `CalculationGroupSelectionMode` enum *(Preview)*
+- ADDED: `CalculationGroupExpression` class *(Preview)*
+- ADDED: `CalculationGroup.MultiSelectionExpression` property *(Preview)*
+- ADDED: `CalculationGroup.NoSelectionExpression` property *(Preview)*
+
+### API Changes in 19.61 - 6-Apr-2023
+
+- Release of [TMDL Preview-1](https://www.nuget.org/packages/Microsoft.AnalysisServices.Tabular.Tmdl.retail.amd64/19.61.1.4-TmdlPreview) [[NetCore](https://www.nuget.org/packages/Microsoft.AnalysisServices.Tabular.Tmdl.NetCore.retail.amd64/19.61.1.4-TmdlPreview)]
+- NEW MetadataObject types:
+  - `Calendar` *(Preview)*
+  - `TimeUnitColumnAssociation` *(Preview)*
+  - `CalendarColumnReference` *(Preview)*
+- ADDED: `TimeUnit` enum *(Preview)*
+
+## 1604 (new in 19.60 - 16-Mar-2023)
+
+- ADDED: [`PartitionSourceType`](https://learn.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.partitionsourcetype)`.DirectLake`
+- ADDED: [`EntityPartitionSource.SchemaName`](https://learn.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.entitypartitionsource.schemaname)
+
+### API Changes in 19.60
+
+- ADDED: [`JsonScripter.ScriptExport(Database)`](https://learn.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.jsonscripter.scriptexport): *Create a script to export a database.*
+
+## 1603 (new in 19.57 - 9-Feb-2023)
+
+- [DataCoverageDefinition](https://learn.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.datacoveragedefinition) MetadataObject type: *A tabular DataCoverageDefinition object. The expression defined on this object gives hint about the data in a partition.*
+- [Partition.DataCoverageDefinition](https://learn.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.partition.datacoveragedefinition): *A reference to an optional DataCoverageDefinition that provides the hint regarding the data that is covered by the partition.*
+
+### API Changes in 19.55 - 11-Jan-2022
+
+*No changes in public API*
+
+### API Changes in 19.54 - 8-Dec-2022
+
+*No changes in public API*
+
+### API Changes in 19.52 - 10-Nov-2022
+
+- Remarks added to [Model.ApplyRefreshPolicies](https://learn.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.model.applyrefreshpolicies), [Table.ApplyRefreshPolicy](https://learn.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.table.applyrefreshpolicy):
+> - The execution flow of ApplyRefreshPolicy is the same as the flow that is triggered by a call to RequestRefresh, followed by a call to Model.SaveChanges.
+> - The execution flow includes:
+>   - Calculating the expected partitioning scheme based on the effective date.
+>   - Comparing the expected partitioning scheme to the existing set of partitions and issue the needed changes to move to the expected scheme [dropping, creating, and merging partitions as needed].
+>   - Refresh the newly created partitions as well as the existing partitions in the incremental window.
+> - The only difference between the ApplyRefreshPolicy and the combination of RequestRefresh+SaveChanges is ApplyRefreshPolicy enables advanced options that are not available otherwise.
+> - It is recommended to use ApplyRefreshPolicy when you want to use a single API call, especially with advanced options.
+> - It is recommended to use the combination of RequestRefresh + SaveChanges when you want to combine the operation with additional authoring calls in the model before the call to SaveChanges.
+
+### API Changes in 19.51 - 6-Oct-2022
+
+*No changes in public API*
+
 ## 1601 (new in 19.49 - 19-Sep-2022)
 
 Introduces **FormatStringDefinition** to measures. Previously, those only existed on [Calculation Items](https://learn.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.calculationitem.formatstringdefinition).
 
 - [Measure.FormatStringDefinition](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.measure.formatstringdefinition): *A reference to a FormatStringDefinition object owned by this Measure.*
 
-### API Additions in 19.48 - 15-Aug-2022
+### API Changes in 19.48 - 15-Aug-2022
 
 - [Model.ApplyAutomaticAggregations](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.model.applyautomaticaggregations): *Retrieves automatic aggregation recommendations from Analysis Services engine and applies changes to the model.*
 - [JsonScripter.ScriptApplyAutomaticAggregations](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.jsonscripter.scriptapplyautomaticaggregations): *Scripts out a given Tabular database into an ApplyAutomaticAggregations command.*
@@ -37,7 +104,7 @@ Introduces **FormatStringDefinition** to measures. Previously, those only existe
 - [NamedExpression.ExpressionSource](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.namedexpression.expressionsource): *A reference to the NamedExpression where the parameter associated with the remote model.*
 - [NamedExpression.RemoteParameterName](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.namedexpression.remoteparametername): *The parameter name defined in source model, applicable only for proxy model and empty for local model.*
 
-### API Additions in 19.39 - 13-Apr-2022
+### API Changes in 19.39 - 13-Apr-2022
 
 - New value in [TraceEventClass Enum](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.traceeventclass)
   - `DAXEvaluationLog = 135` *Output of EvaluateAndLog function.*
@@ -68,7 +135,7 @@ Introduces **FormatStringDefinition** to measures. Previously, those only existe
 - <https://docs.microsoft.com/power-bi/connect-data/incremental-refresh-overview>
 - <https://docs.microsoft.com/power-bi/connect-data/incremental-refresh-xmla>
 
-API Additions
+API Changes
 
 - [RefreshPolicyMode](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.refreshpolicymode) (Enum)
   - RefreshPolicyMode.Import: *Creates import partitions during incremental refresh.*
@@ -94,7 +161,7 @@ API Additions
 - <https://aka.ms/AutomaticAggregations>
 - <https://docs.microsoft.com/power-bi/enterprise/aggregations-auto-configure>
 
-API Additions
+API Changes
 
 - [Table.SystemManaged](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.table.systemmanaged): *A boolean value that indicates whether the table is managed by the system. The system takes ownership of creation and deletion of such tables.*
 
@@ -156,7 +223,7 @@ API Additions
 - <https://www.sqlbi.com/calculation-groups/>
 - <https://docs.microsoft.com/analysis-services/tabular-models/calculation-groups>
 
-API Additions
+API Changes
 
 - [CalculationGroup](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.calculationgroup), [CalculationItem](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.calculationitem)
   - [Table.CalculationGroup](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.table.calculationgroup)
@@ -171,7 +238,7 @@ API Additions
 - <https://powerbi.microsoft.com/blog/power-bi-september-2020-feature-summary/#Enhanced_Dataset_Metadata>
 - <https://powerbi.microsoft.com/blog/power-bi-desktop-march-2020-feature-summary/#_Enhanced_dataset_metadata>
 
-API Additions
+API Changes
 
 - [PowerBIDataSourceVersion.PowerBI_V3](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.powerbidatasourceversion): *Power BI V3 Data Sources support basic partition management operations.*
 - [Model.ForceUniqueNames](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.model.forceuniquenames): *Determines whether measures can have the same names as any column in the model.*
@@ -191,7 +258,7 @@ API Additions
 
 - <https://docs.microsoft.com/power-bi/transform-model/desktop-storage-mode>
 
-API Additions
+API Changes
 
 - [ModeType.Dual](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.modetype): *Allows support for dual mode of Import as well as DirectQuery.*
 - [Measure.DataCategory](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.measure.datacategory): *Specifies the type of data contained in the measure so that you can add custom behaviors based on measure type.*
@@ -205,7 +272,7 @@ API Additions
 - <https://blog.crossjoin.co.uk/2020/04/13/keep-the-existing-data-in-your-power-bi-dataset-and-add-new-data-to-it-using-incremental-refresh/>
 - <https://radacad.com/all-you-need-to-know-about-the-incremental-refresh-in-power-bi-load-changes-only>
 
-API Additions
+API Changes
 
 - [Table.RefreshPolicy](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.table.refreshpolicy)
   - [BasicRefreshPolicy](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.basicrefreshpolicy)
