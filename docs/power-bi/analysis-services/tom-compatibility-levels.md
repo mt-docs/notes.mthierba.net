@@ -44,7 +44,7 @@ Using the reflection approach described [in this article](./list-new-features-in
 
 ## 1604 (new in 19.60 - 16-Mar-2023)
 
-- ADDED: [`PartitionSourceType`](https://learn.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.partitionsourcetype)`.DirectLake`
+- ADDED: [`ModeType.DirectLake`](https://learn.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.modetype) *(used with [`Partition.Mode`](https://learn.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.partition.mode))*
 - ADDED: [`EntityPartitionSource.SchemaName`](https://learn.microsoft.com/dotnet/api/microsoft.analysisservices.tabular.entitypartitionsource.schemaname)
 
 ### API Changes in 19.60
